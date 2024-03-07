@@ -1,4 +1,4 @@
-package ninja.ciox.accessibility.ui.theme
+package ninja.ciox.accessibility.presentation.design_system
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
