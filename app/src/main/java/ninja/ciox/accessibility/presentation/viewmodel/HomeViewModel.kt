@@ -19,6 +19,10 @@ class HomeViewModel @Inject constructor(private val repository: PostsRepository)
     val postsState = _postsState.asStateFlow()
 
     init {
+        getAllPosts()
+    }
+
+    fun getAllPosts() {
         viewModelScope.launch {
             repository.getAllPosts().collectLatest { postResult ->
                 postResult.onSuccess { posts ->
@@ -32,5 +36,9 @@ class HomeViewModel @Inject constructor(private val repository: PostsRepository)
                 }
             }
         }
+    }
+
+    fun addTwoNumbers(a: Int, b: Int): Int {
+        return a + b
     }
 }
