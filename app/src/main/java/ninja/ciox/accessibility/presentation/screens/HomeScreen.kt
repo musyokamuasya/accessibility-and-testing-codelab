@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ninja.ciox.accessibility.presentation.models.UiPost
@@ -19,7 +20,7 @@ import ninja.ciox.accessibility.presentation.viewmodel.HomeViewModel
 fun HomeScreen(modifier: Modifier = Modifier, homeViewModel: HomeViewModel = hiltViewModel()) {
     val postsState by homeViewModel.postsState.collectAsState()
 
-    LazyColumn {
+    LazyColumn(modifier = modifier.testTag("lazy column")) {
 
         items(postsState.posts) { uiPost ->
             Posts(modifier = modifier, uiPost = uiPost)

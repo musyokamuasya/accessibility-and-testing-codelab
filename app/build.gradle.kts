@@ -38,6 +38,13 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+
     buildFeatures {
         compose = true
     }
@@ -62,18 +69,22 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
 
-
-    implementation ("androidx.compose.material3:material3:1.2.1")
-    implementation ("androidx.compose.material3:material3-window-size-class-android:1.2.1")
-    implementation ("androidx.compose.material:material-icons-extended:1.6.3")
-    implementation ("androidx.compose.animation:animation:1.6.3")
+    implementation("androidx.compose.material3:material3:1.2.1")
+    implementation("androidx.compose.material3:material3-window-size-class-android:1.2.1")
+    implementation("androidx.compose.material:material-icons-extended:1.6.4")
+    implementation("androidx.compose.animation:animation:1.6.4")
 
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.11.1")
+    testImplementation("androidx.compose.ui:ui-test-junit4:1.6.4")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

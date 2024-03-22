@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import ninja.ciox.accessibility.presentation.design_system.AccessibilityCodelabTheme
 
 @Composable
-fun SignUpScreen(modifier: Modifier = Modifier, onLoginButtonClicked: () -> Unit = {}) {
+fun SignUpScreen(modifier: Modifier = Modifier, onSignButtonClicked: () -> Unit = {}) {
     var nameText by rememberSaveable { mutableStateOf("") }
     var emailText by rememberSaveable { mutableStateOf("") }
     var passwordText by rememberSaveable { mutableStateOf("") }
@@ -148,9 +148,10 @@ fun SignUpScreen(modifier: Modifier = Modifier, onLoginButtonClicked: () -> Unit
                 .fillMaxWidth()
         )
         Button(
-            onClick = onLoginButtonClicked,
+            onClick = onSignButtonClicked,
             modifier = modifier
                 .fillMaxWidth()
+                .testTag("signup button")
         ) {
             Text(text = "Sign up")
         }
